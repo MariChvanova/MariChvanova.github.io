@@ -34,3 +34,30 @@ ul {
 ul li {
     margin-bottom: 10px;
 }
+
+
+
+#experience h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#experience p {
+    margin-left: 20px;
+    color: #666;
+}
+
+
+
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    section {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
+}
