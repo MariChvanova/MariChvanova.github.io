@@ -52,6 +52,11 @@ ul li {
     color: #666;
 }
 
+img {
+  padding: 10px;
+  margin-left: 50px;
+}
+
 
 @media print {
     body {
