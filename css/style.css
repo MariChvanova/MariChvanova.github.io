@@ -35,6 +35,13 @@ ul li {
     margin-bottom: 10px;
 }
 
+#objective h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+}
+
 #experience h3 {
     color: #333;
     margin-bottom: 5px;
@@ -44,6 +51,7 @@ ul li {
     margin-left: 20px;
     color: #666;
 }
+
 
 @media print {
     body {
