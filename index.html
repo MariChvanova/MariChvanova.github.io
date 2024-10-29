@@ -1,1 +1,106 @@
-"HW" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор Резюме</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Генератор Резюме</h1>
+            <label for="name">Имя:</label>
+            <input type="text" id="name"><br><br>
+            <label for="position">Должность:</label>
+            <input type="text" id="position"><br><br>
+        </header>
+        <section>
+            <h2>Образование</h2>
+            <label for="education">Образование:</label>
+            <input type="text" id="education"><br><br>
+        </section>
+        <section>
+            <h2>Опыт работы</h2>
+            <label for="experience">Опыт работы:</label>
+            <textarea id="experience" rows="4" cols="50"></textarea><br><br>
+        </section>
+        <section>
+            <h2>Навыки</h2>
+            <label for="skills">Навыки:</label>
+            <input type="text" id="skills"><br><br>
+        </section>
+        <section>
+            <h2>Контакты</h2>
+            <label for="email">Email:</label>
+            <input type="email" id="email"><br><br>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone"><br><br>
+            <label for="social">Ссылки на социальные сети:</label>
+            <input type="text" id="social"><br><br>
+        </section>
+        <button onclick="saveResume()">Сохранить резюме</button>
+    </div>
+
+    <script>
+        function saveResume() {
+            var resume = {
+                name: document.getElementById('name').value,
+                position: document.getElementById('position').value,
+                education: document.getElementById('education').value,
+                experience: document.getElementById('experience').value,
+                skills: document.getElementById('skills').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                social: document.getElementById('social').value
+            };
+
+            // Преобразование объекта резюме в формат JSON
+            var resumeJSON = JSON.stringify(resume);
+
+            // Сохранение резюме в локальном хранилище
+            localStorage.setItem('resume', resumeJSON);
+
+            alert('Резюме сохранено!');
+
+            // Создание нового окна для отображения резюме
+            var newWindow = window.open();
+            newWindow.document.write('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ваше Резюме</title></head><body>');
+            newWindow.document.write('<h1>' + resume.name + '</h1>');
+            newWindow.document.write('<p>' + resume.position + '</p>');
+            newWindow.document.write('<h2>Образование</h2>');
+            newWindow.document.write('<p>' + resume.education + '</p>');
+            newWindow.document.write('<h2>Опыт работы</h2>');
+            newWindow.document.write('<p>' + resume.experience + '</p>');
+            newWindow.document.write('<h2>Навыки</h2>');
+            newWindow.document.write('<ul>');
+            newWindow.document.write('<li>' + resume.skills + '</li>');
+            newWindow.document.write('</ul>');
+            newWindow.document.write('<h2>Контакты</h2>');
+            newWindow.document.write('<p>Email: ' + resume.email + '</p>');
+            newWindow.document.write('<p>Телефон: ' + resume.phone + '</p>');
+            newWindow.document.write('<p>Социальные сети: ' + resume.social + '</p>');
+            newWindow.document.write('</body></html>');
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>
